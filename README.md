@@ -1,5 +1,5 @@
 # ai-guardian
 Project for the course ai-guardian
-Falsk Backend
+Flask Backend
 React Frontend
 Lots of love yeeeee
