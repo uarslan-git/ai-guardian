@@ -1,0 +1,55 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 50px;
+    background-color: rgb(248, 252, 255);
+    color: #012644;
+}
+
+/* Header Styles */
+header {
+    background-color: #9cb9d1;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    color: #00335e
+}
+
+/* Navigation Styles */
+nav {
+    background-color: #d6e2ec;
+    color: #00335e;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: #012644;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content Styles */
+main {
+    padding: 20px;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
