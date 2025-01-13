@@ -21,11 +21,12 @@ data = pd.read_csv("../data/spotify_tracks.csv")
 # track_id,track_name,artist_name,year,popularity,artwork_url,album_name,acousticness,danceability,
 # duration_ms,energy,instrumentalness,key,liveness,loudness,mode,speechiness,tempo,time_signature,
 # valence,track_url,language
+# complete_X = data[['instrumentalness', 'speechiness']]
 complete_X = data[['instrumentalness', 'danceability']]
 # X[0] := instrumentalness
 # X[1] := danceability
 
-X = complete_X.to_numpy()[:1000]
+X = complete_X.to_numpy()[:2000]
 X_instr = X[:, 0]
 X_dance = X[:, 1]
 
@@ -33,17 +34,17 @@ y = np.zeros(shape=X.shape[0])
 # y[:int(y.shape[0]/2)] = 1
 # y[np.logical_or(X_popular > 50, np.logical_and(X_dance > 0.5, X_dance < 0.8))] = 1
 y[np.logical_or(X_instr > 0.8, X_dance > 0.6)] = 1
+print(f'Num likes:{int(np.sum(y))} / {y.shape[0]}')
 # y[X_popular > 50] = 1
 
 # Apply noise
-print(f'Num likes:{int(np.sum(y))} / {y.shape[0]}')
 noise_idx = np.random.choice(len(y), size=int(0.1*len(y)), replace=False)
 y[noise_idx] = 1 - y[noise_idx]
 print(f'Num likes:{int(np.sum(y))} / {y.shape[0]}')
 
 
 # Split into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
 # Function to plot decision boundary
 def plot_decision_boundary(model, X, y, title):
