@@ -16,6 +16,11 @@ def get_plot(path):
     fig = pickle.load(open(os.path.join(root_dir(), path), 'rb'))
     return fig.to_json()
 
+@app.route('/api/get_plot_html/<path:path>')
+def get_plot_html(path):
+    fig = pickle.load(open(os.path.join(root_dir(), path), 'rb'))
+    return fig.to_html()
+
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True) 
