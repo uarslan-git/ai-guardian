@@ -7,6 +7,13 @@
   color: white;
 }
 
+.Plot {
+  width: 50%;
+  height: 100vh;
+  border: none;
+  margin: 0 auto;
+}
+
 .App-header {
   min-height: 100vh;
   padding: 20px;
